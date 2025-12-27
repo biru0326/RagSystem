@@ -37,6 +37,36 @@ public class RagQueryService
         }
     }
 
+
+    //Example of enriching chunks with context before indexing
+
+    //public void Index(string text)
+    //{
+    //    foreach (var chunk in _chunker.Chunk(text))
+    //    {
+    //        // Optional: add neutral context to improve semantic consistency
+    //        var enrichedChunk = $"""
+    //    Document type: general text
+    //    Content:
+    //    {chunk}
+    //    """;
+
+    //        var vector = _embedding.GenerateEmbedding(enrichedChunk);
+
+    //        _store.Add(new VectorRecord
+    //        {
+    //            Text = chunk,
+    //            Vector = vector,
+    //            Metadata = new Dictionary<string, string>
+    //            {
+    //                ["source"] = "sample",
+    //                ["type"] = "text"
+    //            }
+    //        });
+    //    }
+    //}
+
+
     public string Query(string question)
     {
         var queryVector = _embedding.GenerateEmbedding(question);
